@@ -1,0 +1,4 @@
+body {
+    /*background-color: lighten(#9A8755, 30%);*/
+    padding-top: 50px; // navbar-fixed-top overlaps with page content. navbar is 50px, so I need to push body down the same amount
+}
