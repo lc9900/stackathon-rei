@@ -31,7 +31,7 @@ app.use(session({
 
 // Session logging for easier debugging
 // app.use(function (req, res, next) {
-//   console.log('session', req.session);
+//   console.log('user', req.user);
 //   next();
 // });
 

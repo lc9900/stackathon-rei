@@ -43,8 +43,9 @@ export function fetchUser(){
         return axios.get('/api/auth/me')
                 .then(res => res.data)
                 .then(user => {
-                    if (user) dispatch(setUser(user));
+                    if (user.id) dispatch(setUser(user));
                 })
+                .catch(err => { throw err; })
     }
 }
 

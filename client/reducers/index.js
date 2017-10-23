@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux';
 import user from './user';
+import properties from './properties';
+import transactions from './transactions';
 
 // Simple reducer for display on main
 const DISPLAY_MAIN = 'DISPLAY_MAIN'; //  To render the main component
@@ -22,8 +24,10 @@ const display = (state=false, action) => {
 
 export default combineReducers({
     display, // global state is named display
-    user,
+    user, properties, transactions
 });
 
 export * from './user';
+export * from './properties';
+export * from './transactions';
 

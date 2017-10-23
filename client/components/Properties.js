@@ -1,20 +1,66 @@
 import React, { Component } from 'react';
 import Analytic from './Analytic';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import { fetchProperties } from '../store';
 
-export default class Summary extends Component {
+class Properties extends Component {
     constructor(){
         super();
     }
 
+    componentDidMount(){
+        const {user, getProperties} = this.props;
+        getProperties(user.id);
+    }
+
     render() {
-        const data = [
-                {name: 'Yearly', 2017: 4500, 2016: 2000, 2015: 1000}
-        ];
+        const {user, properties} = this.props;
+        console.log(user);
+        console.log(properties);
+
         return (
             <div className='container-fluid'>
-                <h1> This is Properties</h1>
-                <Analytic data={data}/>
+                <div className='row'>
+                <br/>
+                    <ul>
+                    {
+                        properties.map(property => {
+                            return (
+                                <li key={property.id}>
+                                    <Link to={`/property/${property.id}`}>{`${property.address}
+                                    ${property.city}, ${property.state} ${property.zip}`}</Link>
+                                </li>
+                            );
+                        })
+                    }
+                    </ul>
+                </div>
             </div>
-        )
+        );
+        // const data = [
+        //         {name: 'Yearly', 2017: 4500, 2016: 2000, 2015: 1000}
+        // ];
+        // return (
+        //     <div className='container-fluid'>
+        //         <h1> This is Properties</h1>
+        //         <Analytic data={data}/>
+        //     </div>
+        // )
     }
 }
+
+/* CONTAINER */
+const mapState = (state) => {
+    return {
+        user: state.user,
+        properties: state.properties
+    }
+}
+const mapDispatch = (dispatch) => {
+  return {
+        getProperties: (userId) => dispatch(fetchProperties(userId)),
+  };
+};
+
+export default connect(mapState, mapDispatch)(Properties);

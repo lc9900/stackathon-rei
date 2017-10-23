@@ -18,8 +18,8 @@ export default function Navbar (props) {
                     <NavLink to="/properties" activeClassName="active">Properties</NavLink>
                 </li>
                 {
-                  user.id ? ( <li className='pull-right'>
-                                <button onClick={logoutUser} className='btn btn-primary'>Logout</button>
+                  user.id ? ( <li>
+                                <a onClick={logoutUser}>Logout</a>
                               </li>) : <span></span>
                 }
               </ul>

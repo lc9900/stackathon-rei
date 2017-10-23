@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import Summary from './Summary';
 import Properties from './Properties';
 import Login from './Login';
-import { displayMain, fetchUser, logout } from '../reducers';
+import { displayMain, fetchUser, logout, removeProperties, removeTransactions } from '../store';
 
 // import { } from '../reducers';
 
@@ -16,7 +16,7 @@ class Main extends Component {
 	}
 
 	componentDidMount() {
-        const { loadSessionUser, setDisplayMain } = this.props;
+        const { user, loadSessionUser, setDisplayMain } = this.props;
         loadSessionUser()
             .then(() => {
                 // Display flag is only useful on first page load, or refresh.
@@ -73,7 +73,14 @@ const mapDispatch = (dispatch) => {
   return {
     loadSessionUser: () => dispatch(fetchUser()),
     setDisplayMain: (flag) => dispatch(displayMain(flag)),
-    logoutUser: () => dispatch(logout()),
+    logoutUser: () => {
+        dispatch(logout())
+            .then(() => {
+                dispatch(removeProperties());
+                dispatch(removeTransactions());
+            })
+            .catch(err => { throw err; });
+    },
   };
 };
 
