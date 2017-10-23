@@ -5,6 +5,7 @@ import {BrowserRouter, Route, NavLink, withRouter, Switch, Redirect} from 'react
 import Navbar from './Navbar';
 import Summary from './Summary';
 import Properties from './Properties';
+import SingleProperty from './SingleProperty'
 import Login from './Login';
 import { displayMain, fetchUser, logout, removeProperties, removeTransactions } from '../store';
 
@@ -50,6 +51,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path='/' component={Summary} />
                     <Route path='/properties' component={Properties} />
+                    <Route path='/property/:propertyId' component={SingleProperty}/>
                     <Redirect to='/' />
                 </Switch>
 			</div>

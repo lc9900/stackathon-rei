@@ -14,10 +14,6 @@ class Summary extends Component {
         if(user) getTransactions(user.id);
     }
 
-    componentWillReceiveProps(newProps) {
-
-    }
-
     render() {
         const {transactions} = this.props;
         if(!transactions) return <div></div>;

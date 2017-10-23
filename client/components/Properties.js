@@ -16,8 +16,6 @@ class Properties extends Component {
 
     render() {
         const {user, properties} = this.props;
-        console.log(user);
-        console.log(properties);
 
         return (
             <div className='container-fluid'>
