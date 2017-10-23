@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { verifyUser, logout, fetchCart, clearCart } from '../store';
+import { verifyUser, logout } from '../store';
 import { Redirect } from 'react-router-dom';
 
 /* -----------------    COMPONENT     ------------------ */
@@ -28,14 +28,12 @@ class Login extends React.Component {
     const { email, password } = this.state;
     event.preventDefault();
     loginUser({ email, password})
-      .then(() => {
-				this.setState({
-          email: '',
-          password: ''
-        });
-
-				this.props.getCart(this.props.user.id);
-      })
+    //   .then(() => {
+				// this.setState({
+    //       email: '',
+    //       password: ''
+    //     });
+    //   })
       .catch(err => {
         this.setState({error: err.response.data});
       });
@@ -47,12 +45,9 @@ class Login extends React.Component {
     const { error } = this.state;
     // If the user is already logged in, then redirect to home page
     if(user.id) {
-      console.log("The logged in user is ", user);
+      // console.log("The logged in user is ", user);
       return (
-              <div>
-                <h2>Welcome back {user.name}</h2>
-                <button onClick={logoutUser} className='btn btn-primary'>Logout</button>
-              </div>
+              <Redirect to='/' />
       );
     }
 
@@ -129,10 +124,6 @@ const mapDispatch = (dispatch) => {
           dispatch(clearCart());
         });
 		},
-
-		getCart : function(id){
-			return dispatch(fetchCart(id))
-		}
   };
 };
 

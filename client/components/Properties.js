@@ -7,10 +7,13 @@ export default class Summary extends Component {
     }
 
     render() {
+        const data = [
+                {name: 'Yearly', 2017: 4500, 2016: 2000, 2015: 1000}
+        ];
         return (
             <div className='container-fluid'>
                 <h1> This is Properties</h1>
-                <Analytic />
+                <Analytic data={data}/>
             </div>
         )
     }

@@ -1,18 +1,19 @@
 const router = require('express').Router();
-const User = require('../db/models/User');
+const {User} = require('../db/models');
 
 require('dotenv').config();
 
 // console.log("process.env.GOOGLE_CLIENT_SECRET=", process.env.GOOGLE_CLIENT_SECRET);
 
 router.post('/', (req, res, next) => {
-
+    // console.log(req.body)
     User.login(req.body)
         .then(user => {
             delete user.dataValues.password;
             // req.session.user = user;
             req.login(user, function(err) {
-              if (err) { return next(err); }
+              if (err) {
+                return next(err); }
               return res.send(user);
             });
             // console.log(user);
@@ -38,7 +39,7 @@ router.post('/signup', (req, res, next) => {
 })
 
 router.post('/logout', (req, res, next) => {
-    delete req.session.user;
+    // delete req.session.user;
     // delete req.user;
     req.logout();
     res.send('logged out');

@@ -6,11 +6,6 @@ import axios from 'axios';
 export default class Analytic extends Component {
     constructor(){
         super();
-        this.state = {
-            data: [
-                {name: 'Overall', profit: 25000, expense: 15000}
-            ]
-        }
     }
 
     componentDidMount(){
@@ -18,7 +13,7 @@ export default class Analytic extends Component {
     }
 
     render(){
-        const {data} = this.state;
+        const {data} = this.props;
         let seed = 0;
         return (
             <BarChart width={730} height={250} data={data}>

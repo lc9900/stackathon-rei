@@ -1,27 +1,29 @@
 import {combineReducers} from 'redux';
-import cart from './cart';
+import user from './user';
 
 // Simple reducer for display on main
 const DISPLAY_MAIN = 'DISPLAY_MAIN'; //  To render the main component
 
-export function displayMain(){
+export function displayMain(flag){
     return {
-        type: DISPLAY_MAIN
+        type: DISPLAY_MAIN,
+        flag // flag is a boolean
     }
 }
 
-const displayReducer = (state=false, action) => {
-    switch(action) {
-        case DISPLAY_MAIN: return true;
+const display = (state=false, action) => {
+    switch(action.type) {
+        case DISPLAY_MAIN:
+            return action.flag;
         default: return state;
     }
 }
 
 
 export default combineReducers({
-	// cart,
-    display: displayReducer, // global state is named display
-})
+    display, // global state is named display
+    user,
+});
 
-// export * from './cart'
+export * from './user';
 
