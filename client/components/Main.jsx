@@ -37,13 +37,17 @@ class Main extends Component {
         const {user, display, logoutUser} = this.props;
         if(!display) return <div></div>;
 
-        if(!user.id) {
-            return (
-                <div className='container-fluid'>
-                    <Login />
-                </div>
-            )
-        }
+        // if(!user.id) {
+        //     return (
+        //         <Redirect to='/login' />
+        //     )
+        // }
+
+        // if(!user.id) {
+        //     return (
+        //         <Login />
+        //     )
+        // }
 
 		return (
 			<div>
@@ -52,6 +56,7 @@ class Main extends Component {
                     <Route exact path='/' component={Summary} />
                     <Route path='/properties' component={Properties} />
                     <Route path='/property/:propertyId' component={SingleProperty}/>
+                    <Route path='/login' component={Login}/>
                     <Redirect to='/' />
                 </Switch>
 			</div>

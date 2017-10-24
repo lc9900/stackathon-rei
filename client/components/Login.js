@@ -45,14 +45,14 @@ class Login extends React.Component {
     const { error } = this.state;
     // If the user is already logged in, then redirect to home page
     if(user.id) {
-      // console.log("The logged in user is ", user);
       return (
               <Redirect to='/' />
       );
     }
 
     return (
-      <div>
+      <div className='container-fluid'>
+        <br />
         <div>
           <form onSubmit={this.onLoginSubmit}>
 

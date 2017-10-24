@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Analytic from './Analytic';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { fetchProperties } from '../store';
 import axios from 'axios';
@@ -31,6 +31,13 @@ class Properties extends Component {
     }
 
     render() {
+        const {user} = this.props;
+        if(!user.id) {
+            return (
+                <Redirect to='/login' />
+            )
+        }
+
         const { transactions, property } = this.state;
         if(!property.id) return <div></div>;
         // console.log("single property transactions ", transactions);

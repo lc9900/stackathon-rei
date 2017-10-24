@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Analytic from './Analytic';
 import {connect} from 'react-redux';
 import { fetchTransactions } from '../store';
+import { Redirect } from 'react-router-dom';
 
 class Summary extends Component {
     constructor(){
@@ -11,11 +12,18 @@ class Summary extends Component {
     componentDidMount(){
         const {user, getTransactions} = this.props;
         console.log('user is ', user)
-        if(user) getTransactions(user.id);
+        if(user.id) getTransactions(user.id);
     }
 
     render() {
-        const {transactions} = this.props;
+        const {transactions, user} = this.props;
+
+        if(!user.id) {
+            return (
+                <Redirect to='/login' />
+            )
+        }
+
         if(!transactions) return <div></div>;
 
         let data = {}, net = 0;

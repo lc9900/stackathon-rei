@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Analytic from './Analytic';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { fetchProperties } from '../store';
 
@@ -11,11 +11,16 @@ class Properties extends Component {
 
     componentDidMount(){
         const {user, getProperties} = this.props;
-        getProperties(user.id);
+        if(user.id) getProperties(user.id);
     }
 
     render() {
         const {user, properties} = this.props;
+        if(!user.id) {
+            return (
+                <Redirect to='/login' />
+            )
+        }
 
         return (
             <div className='container-fluid'>
