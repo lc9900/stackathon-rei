@@ -24,9 +24,9 @@ class Summary extends Component {
             )
         }
 
-        if(!transactions) return <div></div>;
+        if(transactions.length === 0) return <div></div>;
 
-        let data = {}, net = 0;
+        let data = {name: 'Yearly'}, net = 0;
         transactions.forEach(transaction => {
             // Might be better to use hasKey?
             if(data[transaction.year]) data[transaction.year] += transaction.amount;

@@ -37,53 +37,101 @@ const seed = () => {
     .then(() => {
         return Promise.all([
             Transaction.create({
-                description: 'roof repair',
+                description: 'Roof repair',
                 amount: '-1000',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 1
             }),
             Transaction.create({
-                description: 'rent',
+                description: 'Rent',
                 amount: '1300',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 1
             }),
             Transaction.create({
-                description: 'lawn maintenance',
+                description: 'Lawn maintenance',
                 amount: '-100',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 1
             }),
 
             Transaction.create({
-                description: 'agent fee',
+                description: 'Agent fee',
                 amount: '-500',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 2
             }),
             Transaction.create({
-                description: 'rent',
+                description: 'Rent',
                 amount: '1000',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 2
             }),
             Transaction.create({
-                description: 'lawn maintenance',
+                description: 'Lawn maintenance',
                 amount: '-100',
                 userId: 1,
                 year: 2017,
-                month: 'June',
+                month: 'Janurary',
                 propertyId: 2
+            }),
+            Transaction.create({
+                description: 'Leaking pipe',
+                amount: '-100',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 2
+            }),
+            Transaction.create({
+                description: 'Rent',
+                amount: '1000',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 2
+            }),
+            Transaction.create({
+                description: 'Clogged drain',
+                amount: '-100',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 2
+            }),
+            Transaction.create({
+                description: 'Trimming tree branches',
+                amount: '-300',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 1
+            }),
+            Transaction.create({
+                description: 'Rent',
+                amount: '1300',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 1
+            }),
+            Transaction.create({
+                description: 'Replace shower head',
+                amount: '-50',
+                userId: 1,
+                year: 2016,
+                month: 'Dec',
+                propertyId: 1
             }),
         ])
     })

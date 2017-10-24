@@ -42,7 +42,7 @@ class Properties extends Component {
         if(!property.id) return <div></div>;
         // console.log("single property transactions ", transactions);
         // console.log('single property user ', user)
-        let data = {}, net = 0;
+        let data = {name: 'Yearly'}, net = 0;
         transactions.forEach(transaction => {
             // Might be better to use hasKey?
             if(data[transaction.year]) data[transaction.year] += transaction.amount;
@@ -60,7 +60,9 @@ class Properties extends Component {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th>Transaction</th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Description</th>
                             <th>Amount $</th>
                         </tr>
                     </thead>
@@ -69,6 +71,8 @@ class Properties extends Component {
                         transactions.map(transaction => {
                             return (
                                 <tr key={transaction.id}>
+                                    <td>{transaction.year}</td>
+                                    <td>{transaction.month}</td>
                                     <td>{transaction.description}</td>
                                     <td>{transaction.amount}</td>
                                 </tr>
