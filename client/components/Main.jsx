@@ -53,11 +53,11 @@ class Main extends Component {
 			<div>
 				<Navbar user={user} logoutUser={logoutUser}/>
                 <Switch>
-                    <Route exact path='/' component={Summary} />
+                    <Route path='/summary' component={Summary} />
                     <Route path='/properties' component={Properties} />
                     <Route path='/property/:propertyId' component={SingleProperty}/>
                     <Route path='/login' component={Login}/>
-                    <Redirect to='/' />
+                    <Redirect to='/summary' />
                 </Switch>
 			</div>
 		)
