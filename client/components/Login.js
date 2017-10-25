@@ -53,51 +53,53 @@ class Login extends React.Component {
     return (
       <div className='container-fluid'>
         <br />
-        <div>
-          <form onSubmit={this.onLoginSubmit}>
+        <div id='login_form' className='col-sm-4'>
+            <div>
+              <form onSubmit={this.onLoginSubmit}>
 
-            <div className="form-group">
-              <label>Email</label>
-              {
-                error.length > 0 ? <div className="form-group alert alert-danger">{error}</div> : <span></span>
-              }
-              <input
-                name="email"
-                type="email"
-                className="form-control"
-                value={this.state.email}
-                onChange={this.handleChange}
-                required
-              />
+                <div className="form-group">
+                  <label>Email</label>
+                  {
+                    error.length > 0 ? <div className="form-group alert alert-danger">{error}</div> : <span></span>
+                  }
+                  <input
+                    name="email"
+                    type="email"
+                    className="form-control"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    name="password"
+                    type="password"
+                    className="form-control"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-block btn-primary">{message}</button>
+              </form>
             </div>
 
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                name="password"
-                type="password"
-                className="form-control"
-                value={this.state.password}
-                onChange={this.handleChange}
-                required
-              />
+            <hr/>
+
+            <div>
+              <p>
+                <a
+                  href="/api/auth/google"
+                  className="btn btn-danger btn-block">
+                  <i className="fa fa-google" />
+                  <span>{message} with Google</span>
+                </a>
+              </p>
             </div>
-
-            <button type="submit" className="btn btn-block btn-primary">{message}</button>
-          </form>
-        </div>
-
-        <hr/>
-
-        <div>
-          <p>
-            <a
-              href="/api/auth/google"
-              className="btn btn-danger">
-              <i className="fa fa-google" />
-              <span>{message} with Google</span>
-            </a>
-          </p>
         </div>
       </div>
     );

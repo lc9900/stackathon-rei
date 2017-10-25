@@ -2,3 +2,13 @@ body {
     /*background-color: lighten(#9A8755, 30%);*/
     padding-top: 50px; // navbar-fixed-top overlaps with page content. navbar is 50px, so I need to push body down the same amount
 }
+
+div#login_form {
+    margin-left: 32%;
+    margin-right: 32%;
+}
+
+/*div.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+}*/
