@@ -15,6 +15,19 @@ class Summary extends Component {
         if(user.id) getTransactions(user.id);
     }
 
+    formatChartData (name, list) {
+        let net = 0
+        let data = {name};
+        list.forEach(item => {
+            // Might be better to use hasKey?
+            if(data[item.year]) data[item.year] += item.amount;
+            else data[item.year] = item.amount;
+            net += item.amount; // Net is the combined net profit of all years
+        });
+
+        return {data, net};
+    }
+
     render() {
         const {transactions, user} = this.props;
 
@@ -26,13 +39,7 @@ class Summary extends Component {
 
         if(transactions.length === 0) return <div></div>;
 
-        let data = {name: 'Yearly'}, net = 0;
-        transactions.forEach(transaction => {
-            // Might be better to use hasKey?
-            if(data[transaction.year]) data[transaction.year] += transaction.amount;
-            else data[transaction.year] = transaction.amount;
-            net += transaction.amount; // Net is the combined net profit of all years
-        });
+        let {data, net} = this.formatChartData('Yearly', transactions);
 
         return (
             <div className='container-fluid'>
