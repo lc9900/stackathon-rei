@@ -1,6 +1,7 @@
 const db = require('./');
 const { Sequelize } = db;
 
+
 //Models
 const {User, Transaction, Property, Investment} = require('./models');
 
@@ -11,6 +12,7 @@ db.sync({force:true})
     })
     .then(() => {
         console.log('***********************Seeded***********************');
+        db.close();
     })
     .catch(err => { throw err; });
 
