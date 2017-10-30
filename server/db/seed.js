@@ -2,7 +2,7 @@ const db = require('./');
 const { Sequelize } = db;
 
 //Models
-const {User, Transaction, Property} = require('./models');
+const {User, Transaction, Property, Investment} = require('./models');
 
 
 db.sync({force:true})
@@ -32,6 +32,12 @@ const seed = () => {
             zip: '00001',
             userId: 1
         })
+    })
+    .then(() => {
+        return Promise.all([
+                    Investment.create({invested: '53000', propertyId: 1, userId: 1}),
+                    Investment.create({invested: '15000', propertyId: 2, userId: 1}),
+                ]);
     })
 
     .then(() => {

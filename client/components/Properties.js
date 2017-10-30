@@ -26,18 +26,25 @@ class Properties extends Component {
             <div className='container-fluid'>
                 <div className='row'>
                 <br/>
-                    <ul>
-                    {
-                        properties.map(property => {
-                            return (
-                                <li key={property.id}>
-                                    <Link to={`/property/${property.id}`}>{`${property.address}
-                                    ${property.city}, ${property.state} ${property.zip}`}</Link>
-                                </li>
-                            );
-                        })
-                    }
-                    </ul>
+                <div className='col-sm-8'>
+                    <table className='table table-bordered table-hover'>
+                        <tbody>
+                        {
+                            properties.map(property => {
+                                return (
+
+                                    <tr key={property.id}>
+                                        <td>
+                                            <Link to={`/property/${property.id}`}>{`${property.address}
+                                            ${property.city}, ${property.state} ${property.zip}`}</Link>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        }
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
             </div>
         );

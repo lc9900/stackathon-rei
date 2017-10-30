@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Transaction, Property} = require('../db/models');
+const {User, Transaction, Property, Investment} = require('../db/models');
 
 module.exports = router;
 
@@ -17,6 +17,13 @@ router.get('/:id/transactions', (req, res, next) => {
     .catch(next);
 });
 
+
+router.get('/:id/investments', (req, res, next) => {
+    Investment.findAll({
+        where: {propertyId: req.params.id * 1},
+    }).then( investment => res.send(investment))
+    .catch(next);
+});
 // // Find all properties under the user
 // router.get('/:id/properties', (req, res, next) => {
 //     Property.findAll({

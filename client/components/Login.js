@@ -53,7 +53,7 @@ class Login extends React.Component {
     return (
       <div className='container-fluid'>
         <br />
-        <div id='login_form' className='col-sm-4'>
+        <div id='login_form' className='col-sm-4 col-sm-offset-4'>
             <div>
               <form onSubmit={this.onLoginSubmit}>
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Bar} from 'recharts';
+import { BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Bar, ResponsiveContainer, Label} from 'recharts';
 import randomColor from 'randomcolor';
 import axios from 'axios';
 
@@ -16,12 +16,14 @@ export default class Analytic extends Component {
         const {data} = this.props;
         let seed = 0;
         return (
-            <BarChart width={730} height={250} data={data}>
+            <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={data}>
               <XAxis dataKey="name" />
               <YAxis />
               <CartesianGrid strokeDasharray="3 3" />
               <Tooltip />
               <Legend />
+              <Label value='This is a label' position='top' />
               {
 
                 data.map(period => {
@@ -37,6 +39,7 @@ export default class Analytic extends Component {
                 })
               }
             </BarChart>
+            </ResponsiveContainer>
         )
     }
 }
