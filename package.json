@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack & npm run seed",
     "seed": "node server/db/seed.js",
+    "postinstall": "npm run seed & webpack",
     "start:dev": "webpack -w & nodemon --ignore /client --ignore /public server.js",
     "start": "node server.js"
   },
