@@ -96,7 +96,7 @@ const seed = () => {
                 amount: '-100',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 2
             }),
             Transaction.create({
@@ -104,7 +104,7 @@ const seed = () => {
                 amount: '1000',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 2
             }),
             Transaction.create({
@@ -112,7 +112,7 @@ const seed = () => {
                 amount: '-100',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 2
             }),
             Transaction.create({
@@ -120,7 +120,7 @@ const seed = () => {
                 amount: '-300',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 1
             }),
             Transaction.create({
@@ -128,7 +128,7 @@ const seed = () => {
                 amount: '1300',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 1
             }),
             Transaction.create({
@@ -136,7 +136,7 @@ const seed = () => {
                 amount: '-50',
                 userId: 1,
                 year: 2016,
-                month: 'Dec',
+                month: 'December',
                 propertyId: 1
             }),
         ])
