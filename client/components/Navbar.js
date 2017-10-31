@@ -19,7 +19,7 @@ export default function Navbar (props) {
                 </li>
                 {
                   user.id ? ( <li>
-                                <a onClick={logoutUser}>Logout</a>
+                                <a id='logout' onClick={logoutUser}>Logout</a>
                               </li>) : <span></span>
                 }
               </ul>
